@@ -8,13 +8,40 @@
     <title>Campo minato</title>
 </head>
 <body>
-    <div class="wrapper">
-        <!-- GRID -->
+    <!-- <div class="wrapper">
+        GRID
         <div id="playground"></div> 
-        <!-- BUTTON -->
+        BUTTON
         <button class="btn btn-success d-flex">INVIA</button>
-        <!-- MESSAGE -->
+        MESSAGE
         <div class="alert d-none"></div>
+    </div> -->
+    <div id="app">
+        <header>
+            <h1 class="text-center">CampoMinato</h1>
+        </header>
+        <main>
+            <div id="playground">
+
+            </div>
+        </main>
+        <footer>
+            <div class="container-fluid mb-4">
+                <div class="row row-col-2 align-items-end ">
+                    <div class="col">
+                        <label for="level" class="form-label">Select Level</label>
+                        <select name="level" id="level" class="form-control">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="difficult">Difficult</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-success">PLAY</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script src="js/script.js"></script>
