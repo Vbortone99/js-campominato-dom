@@ -39,17 +39,22 @@
 
 campoMinato();
 function campoMinato(){
+    const NUM_BOMBS = 16;
+    let gameOver = false;
+    let bombs;
     const btn = document.querySelector('button');
+    btn.addEventListener("click", play);
 
 btn.addEventListener('click', function(){
     const level = document.getElementById('level').value;
     let numSquare = selectLevel(level);
     console.log(numSquare);
+    bombs = generateBombs(numSquare);
     const squareWidth = Math.sqrt(numSquare);
     const playground = document.getElementById('playground');
     playground.innerHTML = ' ';
-    for(let i = 0; i < numSquare; i++){
-        let square = drawSquare(i+1,squareWidth);
+    for(let i = 1; i <= numSquare; i++){
+        let square = drawSquare(i, squareWidth);
         playground.append(square);
     }
 });
@@ -66,8 +71,14 @@ function drawSquare(content,squareWidth){
 
 function drawClick(){
     if(!this) return;
-    this.classList.add('active');
-    console.log(this.textContent);
+    if(bombs.includes(parseInt(this.textContent))){
+        this.classList.add('bomb');
+        this.innerHTML = '<p> bomb </p>';
+        gameOver = true;
+    }else{
+        this.classList.add('active');
+        console.log(this.textContent);
+    }
 }
 
 function selectLevel(level){
